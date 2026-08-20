@@ -1,4 +1,5 @@
 import express from 'express'
+import 'dotenv/config'
 import router from './src/Features/Auth/Routes/authRoute.js'
 import cors from 'cors'
 const app = express()
