@@ -10,7 +10,7 @@ export const createUserApi=async (user)=>{
 
 export const selectUserApi=async ()=>{
 
-    const result=await axios.get("http://localhost:3000/api/select");
+    const result=await axios.get("https://simple-registration-form-v8tc.onrender.com/api/select");
 
     return result.data;
 }
