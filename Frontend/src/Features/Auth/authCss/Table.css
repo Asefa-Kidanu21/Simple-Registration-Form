@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #919191;
+}
+.title h1{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color:#000093
+}
+.table{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%; 
+    border-collapse: collapse;
+
+}
+.thead{
+    background-color: #000093;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.thead th{
+    padding: 10px;
+    color: #7d0000;
+}
+
+
+.tbody td{
+    padding: 10px;
+    font-family: cambria;
+    font-size: 20px;
+    text-align: left;
+}
+

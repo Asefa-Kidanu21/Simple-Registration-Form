@@ -1,5 +1,6 @@
 
 import { useState, useEffect} from "react";
+import '../authCss/Table.css'
 import {selectUserApi} from "../Services/AuthAPI.js";
 export  function DisplayUsers() {
 
@@ -14,9 +15,13 @@ export  function DisplayUsers() {
 
   return (
     <div>
-        <h1>DisplayUsers</h1>
-        <table border="1">
-            <thead>
+        <div className="title">
+            <h1>DisplayUsers</h1>
+
+        </div>
+        
+        <table border="1" className="table">
+            <thead className="thead">
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
@@ -25,7 +30,7 @@ export  function DisplayUsers() {
                 </tr>
             </thead>
             
-            <tbody>
+            <tbody className="tbody">
                 {users.map((user) => (
                 <tr key={user.id}>
                     <td>{user.id}</td>

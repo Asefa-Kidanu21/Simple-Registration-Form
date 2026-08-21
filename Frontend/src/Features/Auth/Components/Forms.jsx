@@ -1,4 +1,5 @@
-import { useReducer} from "react";
+import { useState,useReducer } from "react";
+import '../authCss/Form.css'
 import {createUserApi} from "../Services/AuthAPI.js";
 
 
@@ -20,6 +21,8 @@ const reducer=(state,action)=>{
 }
 
 export default function Forms() {
+    const [Message,setMessage]=useState('');
+    
     const [state,dispatch]=useReducer(reducer,initialState);
 
     function handleChange(e){
@@ -31,24 +34,41 @@ export default function Forms() {
     }
     async function handleSubmit(e){
         e.preventDefault();
-        await createUserApi(state);
-
-        // console.log(result.message);
-        // console.log(result.data);
-
-        // console.log(state);
+        setMessage('');
+     try {
+      await createUserApi(state);
+        setMessage("User created successfully");
+     }
+      catch (error) {
+        setMessage("User creation failed");
+     }
 
     }
 
   return (
     <div>
-        <h1>simple form</h1>
-        <form onSubmit={handleSubmit}>
-          Name <input type="text" name="name" value={state.name} onChange={handleChange}/> <br /> <br />
-          Email <input type="email" name="email" value={state.email} onChange={handleChange}/> <br /> <br />
-          Password <input type="password" name="password" value={state.password} onChange={handleChange}/> <br /> <br />
-            <button type="submit">Submit</button>
-        </form>
+        <div className="formheader">
+            <h1>Registration Form</h1>
+        </div>
+<div className="form">
+    <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input type="text" name="name" value={state.name} onChange={handleChange}/> <br /> <br />
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" value={state.email} onChange={handleChange}/> <br /> <br />
+        <label htmlFor="password">Password</label>
+        <input type="password" name="password" value={state.password} onChange={handleChange}/> <br /> <br />
+        <button type="submit" className="submit">Submit</button>
+    </form>
+</div>
+<div className="message">
+    <p>{Message}</p>
+
+   
+
+</div>
+        
+
     </div>
   )
 }
